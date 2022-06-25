@@ -46,7 +46,7 @@ function Alloutes() {
       const userInfo = await program.account.userAccount.fetch(user_pda)
       console.log(userInfo)
       setUserDetail(userInfo)
-      setAccount(false)
+      setAccount(true)
     } catch (e) {
       setAccount(false)
     }
