@@ -1,5 +1,6 @@
 @echo off
+git status
 git add .
-git status 
+git status
 git commit -m "New Changes"
 pause
