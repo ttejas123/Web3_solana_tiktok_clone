@@ -56,7 +56,7 @@ function Alloutes() {
   return (
         <div>
             {account ? (
-                <div>Main View Load here..</div>
+                <div>Main View Load here...</div>
             ): (
                 <Signup signup={signup} wallet={wallet.publicKey.toBase58} setAccount={setAccount} account={account} />
             )}
