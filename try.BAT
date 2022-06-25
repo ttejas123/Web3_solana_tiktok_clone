@@ -2,6 +2,6 @@
 git status
 git add .
 git status
-git commit -m "New Changes"
+git commit -m "New Changes `%DATE%`"
 git push origin Master
 pause
