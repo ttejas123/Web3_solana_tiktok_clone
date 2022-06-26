@@ -15,24 +15,20 @@ const defaultAccounts = {
     SystemProgram: SystemProgram.programId, 
 }
 
-const useTiktok = (
-  setTiktoks,
-  userDetail,
-  videoUrl,
-  description,
-  setDescription,
-  setVideoUrl,
-  setNewVideoShow
-) => {
+const useTiktok = () => {
   const wallet = useWallet()
   const connection = new anchor.web3.Connection(SOLANA_HOST);
   const program = getProgramInstance(connection, wallet);
   const getTiktoks = async () => {
     console.log('fetching videos');
 
-    const video = program.account.videoAccount
+    const videos = program.account.videoAccount.all()
+    console.log(videos)
   }
+  return { getTiktoks }
 }
+
+export default useTiktok;
 
 // import { TOKEN_PROGRAM_ID } from '@solana/spl-token'
 // import { useWallet } from '@solana/wallet-adapter-react'

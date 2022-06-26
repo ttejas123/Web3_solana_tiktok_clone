@@ -6,6 +6,7 @@ import { useWallet } from  '@solana/wallet-adapter-react'
 import { SOLANA_HOST } from '../utils/const'
 import { getProgramInstance } from '../utils/utils'
 import { TOKEN_PROGRAM_ID } from '@solana/spl-token'
+import Mainview from './mainview';
 
 import useAccount from '../hooks/useAccount'
 
@@ -56,7 +57,7 @@ function Alloutes() {
   return (
         <div>
             {account ? (
-                <div>Main View Load here...</div>
+                <Mainview />
             ): (
                 <Signup signup={signup} wallet={wallet.publicKey.toBase58} setAccount={setAccount} account={account} />
             )}
