@@ -15,17 +15,71 @@ const defaultAccounts = {
     SystemProgram: SystemProgram.programId, 
 }
 
-const useTiktok = () => {
+const useTiktok = (
+  setTikToks,
+  userDetail,
+  videoUrl,
+  description,
+  setDescription,
+  setVideoUrl,
+  setNewVideoShow,
+) => {
   const wallet = useWallet()
   const connection = new anchor.web3.Connection(SOLANA_HOST);
   const program = getProgramInstance(connection, wallet);
+  
+  //to get all tiktoks
   const getTiktoks = async () => {
     console.log('fetching videos');
 
     const videos = program.account.videoAccount.all()
     console.log(videos)
+    setTikToks(videos)
   }
-  return { getTiktoks }
+
+  // like video
+  const LikeVideo = async address => {
+
+  }
+
+  //comment on video
+  const createComment = async (address, count, comment) => {
+
+  }
+
+  //create video
+  const newVideo = async () => {
+    const randomKey = anchor.web3.Keypair.generate().publicKey;
+
+    let [video_pda] = await anchor.web3.PublicKey.findProgramAddress(
+      [utf8.encode('video'), wallet.publicKey.toBuffer()],
+      program.programId,
+    )
+
+    await program.rpc.createVideo(
+      description, 
+      videoUrl, 
+      userDetail.userName,
+      userDetail.userProfileImageUrl,
+      {
+        accounts: {
+          video: video_pda,
+          randomkey: randomKey,
+          authority: wallet.publicKey,
+          ...defaultAccounts,
+        },
+      })
+
+      console.log(tx)
+      setDescription("")
+      setVideoUrl('')
+      setNewVideoShow(false)
+  }
+
+  const getComments = async (address, count) => {
+
+  }
+  return { getTiktoks, LikeVideo, createComment, newVideo, getComments }
 }
 
 export default useTiktok;
