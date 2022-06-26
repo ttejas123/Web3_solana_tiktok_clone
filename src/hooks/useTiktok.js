@@ -70,7 +70,7 @@ const useTiktok = (
         },
       })
 
-      console.log(tx)
+      // console.log(tx)
       setDescription("")
       setVideoUrl('')
       setNewVideoShow(false)
