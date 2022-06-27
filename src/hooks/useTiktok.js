@@ -56,7 +56,7 @@ const useTiktok = (
       program.programId,
     )
 
-    await program.rpc.createVideo(
+    const tx = await program.rpc.createVideo(
       description, 
       videoUrl, 
       userDetail.userName,
@@ -70,7 +70,7 @@ const useTiktok = (
         },
       })
 
-      // console.log(tx)
+      console.log(tx)
       setDescription("")
       setVideoUrl('')
       setNewVideoShow(false)

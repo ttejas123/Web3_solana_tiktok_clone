@@ -8,6 +8,7 @@ import { getProgramInstance } from '../utils/utils'
 import { TOKEN_PROGRAM_ID } from '@solana/spl-token'
 import Mainview from './mainview';
 
+import useTiktok from '../hooks/useTiktok'
 import useAccount from '../hooks/useAccount'
 
 const anchor = require('@project-serum/anchor')
@@ -25,15 +26,29 @@ const defaultAccounts = {
 function Alloutes() {
  
   const [account, setAccount] = useState(false);
+  const [userDetail, setUserDetail] = useState();
+  const [tiktoks, setTikToks] = useState();
+  const [newVideoShow ,setNewVideoShow] = useState(false);
+  const [description ,setDescription] = useState('');
+  const [videoUrl ,setVideoUrl] = useState('hello');
+
   const wallet = useWallet()
   const connection = new anchor.web3.Connection(SOLANA_HOST)
-  const [userDetail, setUserDetail] = useState()
   const program = getProgramInstance(connection, wallet)
+  const { getTiktoks, LikeVideo, createComment, getComments, newVideo } = useTiktok(
+    setTikToks,
+    userDetail,
+    videoUrl,
+    description,
+    setDescription,
+    setVideoUrl,
+    setNewVideoShow
+  );
 
   useEffect(() => {
     if (wallet.connected) {
       checkAccount()
-    //   getTiktoks()
+      getTiktoks()
     }
   }, [wallet.connected])
 
