@@ -7,7 +7,7 @@ function Alloutes(props) {
     <div className="bg-stone-900 h-[100vh] flex justify-center items-center">
         <div className="bg-white w-[90%] md:w-[45%] lg:w-[40%] xl:w-[30%] rounded-lg flex flex-col justify-center items-center py-5">
         
-        <div className="font-bold text-xl ">Sign Up To Use Tik-Tok</div>
+        <div className="font-bold text-xl">Sign Up To Use Tik-Tok</div>
         
         <div className="my-5 flex flex-col justify-center items-center w-[100%]">
             <div className="text-md text-left w-[90%]">Username:</div>

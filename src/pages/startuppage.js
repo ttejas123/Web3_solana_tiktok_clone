@@ -72,7 +72,10 @@ function Alloutes() {
   return (
         <div>
             {account ? (
+              <>
+                {newVideoShow && (<>Model Load</>)}
                 <Mainview />
+              </>
             ): (
                 <Signup signup={signup} wallet={wallet.publicKey.toBase58} setAccount={setAccount} account={account} />
             )}
