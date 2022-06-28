@@ -30,7 +30,7 @@ const useTiktok = (
   
   //to get all tiktoks
   const getTiktoks = async () => {
-    console.log('fetching videos');
+    console.log('fetching Tiktok videos');
 
     const videos = program.account.videoAccount.all()
     console.log(videos)
