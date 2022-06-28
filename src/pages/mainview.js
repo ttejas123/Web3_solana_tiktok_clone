@@ -21,7 +21,7 @@ export default function Mainview() {
       <div className='absolute bottom-0 md:bottom-[5%] w-[100%] md:w-[40%] lg:w-[35%] xl:w-[25%] md:rounded-b-xl text-white w-full bg-black flex justify-between py-2 px-7 items-center'>
         <img className="w-[9%]" src={baseicon4} />
         <img className="w-[9%]" src={baseicon1} />
-        <div className="bg-white w-[11%] h-6 rounded-md text-black flex justify-center items-center text-2xl pb-1">+</div>
+        <div className="bg-white w-[11%] h-6 rounded-md text-black flex justify-center items-center text-2xl">+</div>
         <img className="w-[9%]" src={baseicon2} />
         <img className="w-[9%]" src={baseicon3} />
       </div>
