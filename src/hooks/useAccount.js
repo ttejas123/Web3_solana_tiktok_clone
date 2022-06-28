@@ -34,7 +34,7 @@ const useAccount = () => {
 
     console.log(tx);
     setAccount(true);
-
+    
   }
   return { signup }
 }

@@ -86,7 +86,7 @@ function Alloutes() {
                 <Mainview description={description} setDescription={setDescription} videoUrl={videoUrl} setVideoUrl={setVideoUrl} newVideo={newVideo} tiktoks={tiktoks} />
               </>
             ): (
-                <Signup signup={signup} wallet={wallet.publicKey.toBase58} setAccount={setAccount} account={account} />
+                <Signup signup={signup} wallet={wallet.publicKey.toBase58} setAccount={setAccount} account={account} checkAccount={checkAccount} />
             )}
         </div>
   );
