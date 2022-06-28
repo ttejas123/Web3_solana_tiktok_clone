@@ -73,7 +73,9 @@ const useTiktok = (
       console.log(tx)
       setDescription("")
       setVideoUrl('')
-      getTiktoks();
+      // setTimeout(async () => {
+      //  await getTiktoks()
+      // }, 6000);
       setNewVideoShow(false)
   }
 

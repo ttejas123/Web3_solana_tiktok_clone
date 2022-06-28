@@ -54,7 +54,8 @@ function Alloutes() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      // getTiktoks();
+      getTiktoks();
+      // console.log(tiktoks);
     }, 3000)
 
     // clear interval on re-render to avoid memory leaks
