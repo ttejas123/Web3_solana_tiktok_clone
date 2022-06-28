@@ -6,13 +6,13 @@ import { SOLANA_HOST } from "../utils/const";
 import { getProgramInstance } from "../utils/utils";
 const anchor = require('@project-serum/anchor')
 const utf8 = anchor.utils.bytes.utf8
-const {BN, web3} = anchor
-const  {SystemProgram} = web3;
+const { BN, web3 } = anchor
+const { SystemProgram } = web3
 
 const defaultAccounts = {
-    tokenProgram: TOKEN_PROGRAM_ID,
-    clock: anchor.web3.SYSVAR_CLOCK_PUBKEY,
-    SystemProgram: SystemProgram.programId, 
+  tokenProgram: TOKEN_PROGRAM_ID,
+  clock: anchor.web3.SYSVAR_CLOCK_PUBKEY,
+  systemProgram: SystemProgram.programId,
 }
 
 const useTiktok = (
@@ -32,7 +32,7 @@ const useTiktok = (
   const getTiktoks = async () => {
     console.log('fetching Tiktok videos');
 
-    const videos = program.account.videoAccount.all()
+    const videos = await program.account.videoAccount.all()
     console.log(videos)
     setTikToks(videos)
   }
@@ -52,7 +52,7 @@ const useTiktok = (
     const randomKey = anchor.web3.Keypair.generate().publicKey;
 
     let [video_pda] = await anchor.web3.PublicKey.findProgramAddress(
-      [utf8.encode('video'), wallet.publicKey.toBuffer()],
+      [utf8.encode('video'), randomKey.toBuffer()],
       program.programId,
     )
 
@@ -73,6 +73,7 @@ const useTiktok = (
       console.log(tx)
       setDescription("")
       setVideoUrl('')
+      getTiktoks();
       setNewVideoShow(false)
   }
 
@@ -235,3 +236,4 @@ export default useTiktok;
 // }
 
 // export default useTiktok
+

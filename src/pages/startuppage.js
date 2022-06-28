@@ -27,10 +27,10 @@ function Alloutes() {
  
   const [account, setAccount] = useState(false);
   const [userDetail, setUserDetail] = useState();
-  const [tiktoks, setTikToks] = useState();
+  const [tiktoks, setTikToks] = useState([]);
   const [newVideoShow ,setNewVideoShow] = useState(false);
   const [description ,setDescription] = useState('');
-  const [videoUrl ,setVideoUrl] = useState('hello');
+  const [videoUrl ,setVideoUrl] = useState('');
 
   const wallet = useWallet()
   const connection = new anchor.web3.Connection(SOLANA_HOST)
@@ -73,7 +73,7 @@ function Alloutes() {
         <div>
             {account ? (
               <>
-                <Mainview description={description} setDescription={setDescription} />
+                <Mainview description={description} setDescription={setDescription} videoUrl={videoUrl} setVideoUrl={setVideoUrl} newVideo={newVideo} tiktoks={tiktoks} />
               </>
             ): (
                 <Signup signup={signup} wallet={wallet.publicKey.toBase58} setAccount={setAccount} account={account} />
