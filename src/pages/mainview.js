@@ -12,7 +12,7 @@ export default function Mainview(props) {
   const[visible, setVisible] = useState(false)
   return (
     <div className="flex justify-center items-center h-[100vh] bg-stone-900 relative">
-      {visible && (<div className="absolute  bg-transparent h-[100%] w-[100%] md:w-[40%] lg:w-[35%] xl:w-[25%]"><CreateVideo setVisible={setVisible} visible={visible} description={props.description} setDescription={props.setDescription} videoUrl={props.videoUrl} setVideoUrl={props.setVideoUrl} newVideo={props.newVideo} /></div>)}
+      {visible && (<div className="absolute  bg-transparent h-[100%] w-[100%] md:w-[40%] lg:w-[35%] xl:w-[25%] z-20"><CreateVideo setVisible={setVisible} visible={visible} description={props.description} setDescription={props.setDescription} videoUrl={props.videoUrl} setVideoUrl={props.setVideoUrl} newVideo={props.newVideo} /></div>)}
       <div className="h-[100%] md:h-[90%] bg-black w-[100%] md:w-[40%] lg:w-[35%] xl:w-[25%] md:rounded-xl overflow-auto snap-mandatory snap-y scroll-mandatory-here">
         {props.tiktoks ? (<>
           { props.tiktoks.map((val, index) => {
