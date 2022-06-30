@@ -46,15 +46,12 @@ function Alloutes() {
   );
 
   useEffect(() => {
-    if (wallet.connected) {
-      checkAccount()
-      getTiktoks()
-    }
-  }, [wallet.connected])
-
-  useEffect(() => {
     const intervalId = setInterval(() => {
-      getTiktoks();
+      if (wallet.connected) {
+        checkAccount()
+        getTiktoks()
+      }
+      // getTiktoks();
       // console.log(tiktoks);
     }, 3000)
 
