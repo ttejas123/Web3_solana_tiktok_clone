@@ -33,7 +33,7 @@ const useAccount = () => {
     })
 
     console.log(tx);
-    setAccount(true);
+    // setAccount(true);
     
   }
   return { signup }
