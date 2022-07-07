@@ -67,7 +67,7 @@ function Alloutes() {
 
     try {
       const userInfo = await program.account.userAccount.fetch(user_pda)
-      console.log(userInfo)
+      // console.log(userInfo)
       setUserDetail(userInfo)
       setAccount(true)
     } catch (e) {
@@ -80,7 +80,7 @@ function Alloutes() {
         <div>
             {account ? (
               <>
-                <Mainview description={description} setDescription={setDescription} videoUrl={videoUrl} setVideoUrl={setVideoUrl} newVideo={newVideo} tiktoks={tiktoks} />
+                <Mainview description={description} setDescription={setDescription} videoUrl={videoUrl} setVideoUrl={setVideoUrl} newVideo={newVideo} LikeVideo={LikeVideo} getComments={getComments} createComment={createComment} tiktoks={tiktoks} />
               </>
             ): (
                 <Signup signup={signup} wallet={wallet.publicKey.toBase58} setAccount={setAccount} account={account} checkAccount={checkAccount} />

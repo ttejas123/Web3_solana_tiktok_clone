@@ -17,7 +17,15 @@ export default function Mainview(props) {
         {props.tiktoks ? (<>
           { props.tiktoks.map((val, index) => {
               return (<div key={index} className='w-[100%] h-[100%] snap-center bg-transparent flex justify-center items-center'>
-                        <Playvideo videoUrl={val.account.videoUrl} />
+                        <Playvideo videoUrl={val.account.videoUrl} description={val.account.description} name={val.account.creatorName} likes={val.account.likes}
+                          LikeVideo={props.LikeVideo}
+                          getComments={props.getComments}
+                          index={val.account.index.toNumber()}
+                          createComment={props.createComment}
+                          shares={val.account.remove.toNumber()}
+                          address={val.publicKey.toBase58()}
+                          commentsCount={val.account.commentCount.toNumber()}
+                          likesAddress={val.account.peopleWhoLiked} />
                       </div>)
           })}
                           </>) : (<>No TikToks</>)}    
@@ -29,6 +37,7 @@ export default function Mainview(props) {
         <img className="w-[9%] cursor-pointer" src={baseicon2} />
         <img className="w-[9%] cursor-pointer" src={baseicon3} />
       </div>
+
     </div>
   )
 }
